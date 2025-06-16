@@ -1,3 +1,4 @@
+import 'package:diary_app_statemanagement/providers/navigation_provider.dart';
 import 'package:diary_app_statemanagement/providers/note_provider.dart';
 import 'package:diary_app_statemanagement/screens/widgets/main_appbar_widget.dart';
 import 'package:diary_app_statemanagement/screens/widgets/note_widget.dart';
@@ -10,6 +11,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final noteProvider = context.watch<NoteProvider>();
+    final navProvider = context.watch<NavigationProvider>();
     final notes = noteProvider.notes;
 
     return Scaffold(
@@ -28,7 +30,7 @@ class HomeScreen extends StatelessWidget {
         itemBuilder: (context, index) => NoteWidget(note: notes[index]), 
         )
       ),
-      bottomNavigationBar: MainAppbarWidget()
+      bottomNavigationBar: MainAppbarWidget(index: navProvider.currentIndex,)
     );
   }
 }

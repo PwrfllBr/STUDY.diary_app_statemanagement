@@ -1,3 +1,4 @@
+import 'package:diary_app_statemanagement/providers/navigation_provider.dart';
 import 'package:diary_app_statemanagement/providers/note_provider.dart';
 import 'package:diary_app_statemanagement/routes/routes.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(providers: [
       ChangeNotifierProvider<NoteProvider>(create: (_) => NoteProvider()),
+      ChangeNotifierProvider<NavigationProvider>(create: (_) => NavigationProvider()),
     ],
       child: MaterialApp(
         title: 'Flutter Demo',
